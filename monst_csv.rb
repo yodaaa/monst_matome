@@ -23,4 +23,4 @@ rss_monstmatomember*
 
 #c = MeCab::Tagger.new
 #puts c.parse("【モンスト】※真骨頂※もはやパワー型の域！”4万を超える攻撃力”へ続々と超強化")
-csv_output
+rss_sort

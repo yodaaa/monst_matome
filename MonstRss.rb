@@ -82,6 +82,24 @@ module MonstRss
     end
   end
 
+  def rss_sort
+    matome_list = []
+    @@matmome_url.values.each do |url|
+      rss = RSS::Parser.parse(url)
+      rss.items.each do |item|
+        matome_list <<  ["#{item.date}", "#{item.title}", "#{item.link}"]
+      end
+    end
+
+    CSV.open("./sort_matome.csv", "wb") do |csv|
+      matome_list.sort.reverse #最新順にソート
+      matome_list.each do |i|
+        csv << i
+      end
+    end
+    #puts matome_list
+  end
+
 ###############################################################
 
   def rss_monstjapan
